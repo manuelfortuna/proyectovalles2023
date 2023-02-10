@@ -1,0 +1,244 @@
+<form [formGroup]="nuevoPedidoForm" novalidate (ngSubmit)="onSubmit()">
+
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Nuevo pedido</mat-card-title>
+      <!--Inicia segmento de folio-->
+      <div class="col">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Folio de pedido</mat-label>
+              <input matInput formControlName="folio" readonly>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </mat-card-header>
+    <!--Finaliza segmento de folio-->
+
+    <mat-card-content>
+      <mat-divider></mat-divider>
+      <br>
+      <div class="row">
+        <div class="col-md-2">
+          <mat-form-field class="full-width">
+            <mat-label>ID Cliente</mat-label>
+            <input matInput formControlName="idCliente">
+            <mat-error *ngIf="nuevoPedidoForm.controls['idCliente'].hasError('required')">
+              ID es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <mat-label>Nombre de cliente</mat-label>
+            <input matInput formControlName="nomCliente">
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="full-width">
+            <mat-label>Proveedor</mat-label>
+            <input matInput formControlName="proveedor">
+          </mat-form-field>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>ID Agente</mat-label>
+            <input matInput formControlName="idAgente">
+            <mat-error *ngIf="nuevoPedidoForm.controls['idAgente'].hasError('required')">
+              ID del agente es <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Nombre de agente</mat-label>
+            <input matInput formControlName="nomAgente">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+      <br>
+      <div class="row">
+        <div class="col-md-2">
+          <mat-form-field class="full-width">
+            <mat-label>Clave</mat-label>
+            <input matInput formControlName="clave">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <mat-label>Descripcion</mat-label>
+            <input matInput formControlName="descripcion">
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="full-width">
+            <mat-label>Empaque</mat-label>
+            <input matInput formControlName="empaque">
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="full-width">
+            <mat-label>Precio</mat-label>
+            <input matInput formControlName="precio">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2">
+          <mat-form-field class="full-width">
+            <mat-label>Precio Especial</mat-label>
+            <input matInput formControlName="preEspecial">
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="full-width">
+            <mat-label>Bonificacion</mat-label>
+            <input matInput formControlName="bonificacion">
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="full-width">
+            <mat-label>Pedido cajas</mat-label>
+            <input matInput formControlName="pedidoCajas">
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="full-width">
+            <mat-label>Bonificacion total</mat-label>
+            <input matInput formControlName="boniTotal">
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="full-width">
+            <mat-label>Venta Neta</mat-label>
+            <input matInput formControlName="ventaNeta">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <mat-form-field class="full-width">
+            <mat-label>Comentarios</mat-label>
+            <input matInput formControlName="comentarios">
+          </mat-form-field>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col buttons">
+          <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit">Añadir articulo</button>
+          </mat-card-actions>
+        </div>
+      </div>
+
+
+      <mat-divider></mat-divider>
+      <br>
+      <br>
+      
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="clave">
+            <th mat-header-cell *matHeaderCellDef> Clave </th>
+            <td mat-cell *matCellDef="let element"> {{element.clave}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="desc">
+            <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+            <td mat-cell *matCellDef="let element"> {{element.desc}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="empaque">
+            <th mat-header-cell *matHeaderCellDef> Empaque </th>
+            <td mat-cell *matCellDef="let element"> {{element.empaque}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="precio_iva">
+            <th mat-header-cell *matHeaderCellDef> Precio c/impuestos margen% </th>
+            <td mat-cell *matCellDef="let element"> {{element.precio_iva}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="precio_especial">
+            <th mat-header-cell *matHeaderCellDef> Precio especial </th>
+            <td mat-cell *matCellDef="let element"> {{element.precio_especial}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="bonificacion">
+            <th mat-header-cell *matHeaderCellDef> Bonificacion </th>
+            <td mat-cell *matCellDef="let element"> {{element.bonificacion}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="pedido_cajas">
+            <th mat-header-cell *matHeaderCellDef> Pedido cajas </th>
+            <td mat-cell *matCellDef="let element"> {{element.pedido_cajas}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="bonificacion_total">
+            <th mat-header-cell *matHeaderCellDef> Bonificacion total </th>
+            <td mat-cell *matCellDef="let element"> {{element.bonificacion_total}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="venta_neta">
+            <th mat-header-cell *matHeaderCellDef> Venta Neta </th>
+            <td mat-cell *matCellDef="let element"> {{element.venta_neta}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="comentarios">
+            <th mat-header-cell *matHeaderCellDef> Comentarios</th>
+            <td mat-cell *matCellDef="let element"> {{element.comentarios}} </td>
+        </ng-container>
+    
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+      
+      <br>
+      <div class="row">
+        <div class="col buttons">
+          <mat-card-actions>
+            <button mat-raised-button color="warn" type="submit">Limpiar pedido</button>
+            <div>&nbsp;</div>
+            <button mat-raised-button color="primary" type="submit">Guardar pedido</button>
+          </mat-card-actions>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</form>

@@ -1,0 +1,58 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 170px;
+  background: #53A2F8;
+}
+
+.sidenav .mat-toolbar {
+  background: #53A2F8;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #1D4491;
+}
+.header-image {
+  background-image: url("/assets/iconoExpoventa.png");
+  background-size: cover;
+  width: 85px;
+  height: 65px;
+  border: 0px solid;
+  color: pink;
+  resize: horizontal;
+  
+}
+
+.navbarIcon{
+  width: 9em;
+  height: 14em;
+  display: block;
+  margin: auto;
+  
+}
+.container_navbarIcon{
+  border: 0px solid;
+/*  color: pink;  
+  margin: auto;*/
+
+}
+.is-active {
+  background-color: #1D4491;
+}
+
+.textoNavbarMenu{
+  color: white;
+}
+.textoNavbar{
+  color: honeydew;
+}
+/*padding del router-outlet*/
+.mat-mdc-card-content:first-child{
+  padding-top: 0px;
+}
+

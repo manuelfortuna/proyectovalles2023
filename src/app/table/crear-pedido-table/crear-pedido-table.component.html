@@ -1,0 +1,74 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="clave">
+        <th mat-header-cell *matHeaderCellDef> Clave </th>
+        <td mat-cell *matCellDef="let element"> {{element.clave}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="desc">
+        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+        <td mat-cell *matCellDef="let element"> {{element.desc}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="empaque">
+        <th mat-header-cell *matHeaderCellDef> Empaque </th>
+        <td mat-cell *matCellDef="let element"> {{element.empaque}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="precio_iva">
+        <th mat-header-cell *matHeaderCellDef> Precio c/impuestos margen% </th>
+        <td mat-cell *matCellDef="let element"> {{element.precio_iva}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="precio_especial">
+        <th mat-header-cell *matHeaderCellDef> Precio especial </th>
+        <td mat-cell *matCellDef="let element"> {{element.precio_especial}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="bonificacion">
+        <th mat-header-cell *matHeaderCellDef> Bonificacion </th>
+        <td mat-cell *matCellDef="let element"> {{element.bonificacion}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="pedido_cajas">
+        <th mat-header-cell *matHeaderCellDef> Pedido cajas </th>
+        <td mat-cell *matCellDef="let element"> {{element.pedido_cajas}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="bonificacion_total">
+        <th mat-header-cell *matHeaderCellDef> Bonificacion total </th>
+        <td mat-cell *matCellDef="let element"> {{element.bonificacion_total}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="venta_neta">
+        <th mat-header-cell *matHeaderCellDef> Venta Neta </th>
+        <td mat-cell *matCellDef="let element"> {{element.venta_neta}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="comentarios">
+        <th mat-header-cell *matHeaderCellDef> Comentarios</th>
+        <td mat-cell *matCellDef="let element"> {{element.comentarios}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

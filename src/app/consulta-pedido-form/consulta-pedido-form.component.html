@@ -1,0 +1,87 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Consulta pedido</mat-card-title>
+      <!--Inicia segmento de folio-->
+      <div class="col">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Folio de pedido</mat-label>
+              <input matInput formControlName="folio">
+              <mat-error *ngIf="addressForm.controls['folio'].hasError('required')">
+                Folio es <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </mat-card-header>
+    <!--Finaliza segmento de folio-->
+
+    <mat-card-content>
+      <mat-divider></mat-divider>
+      <br>
+      <div class="row">
+        <div class="col-md-2">
+          <mat-form-field class="full-width">
+            <mat-label>ID Cliente</mat-label>
+            <input matInput formControlName="idCliente" readonly>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <mat-label>Nombre de cliente</mat-label>
+            <input matInput formControlName="nomCliente" readonly>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="full-width">
+            <mat-label>Proveedor</mat-label>
+            <input matInput formControlName="proveedor" readonly>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>ID Agente</mat-label>
+            <input matInput formControlName="idAgente" readonly>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Nombre de agente</mat-label>
+            <input matInput formControlName="nomAgente" readonly>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+      <br>
+      <mat-divider></mat-divider>
+      <app-crear-pedido-table></app-crear-pedido-table>
+
+      <br>
+      <div class="row">
+        <div class="col buttons">
+          <mat-card-actions>
+            <button mat-raised-button color="warn" type="submit">Limpiar busqueda</button>
+            <div>&nbsp;</div>
+            <button mat-raised-button color="primary" type="submit">Imprimir pedido</button>
+          </mat-card-actions>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</form>

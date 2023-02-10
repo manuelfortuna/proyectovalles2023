@@ -1,0 +1,53 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="textoNavbarMenu">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="crear-pedido-form" [routerLinkActive]="['is-active']" ><span class="textoNavbar">Nuevo pedido</span> </a>
+      <a mat-list-item routerLink="consulta-pedido-form" [routerLinkActive]="['is-active']" ><span class="textoNavbar">Consultar pedido</span></a>
+      <a mat-list-item routerLink="home-pedido" [routerLinkActive]="['is-active']"><span class="textoNavbar">Otro</span></a>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+     
+      <div class="container_navbarIcon">
+        <img class="navbarIcon" src="/assets/125anios_vertical.png">
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div mat-card-non-avatar class="header-image"></div>
+      <span>EXPO VALLES 2023</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div class="content">
+
+      <mat-card>
+        <mat-card-content>
+         <!--   <app-crear-pedido-form></app-crear-pedido-form>-->
+         <router-outlet></router-outlet>
+         <app-aviso-privacidad></app-aviso-privacidad>
+          
+        </mat-card-content>
+      </mat-card>
+
+      
+      
+    </div>
+    
+  </mat-sidenav-content>
+</mat-sidenav-container>
